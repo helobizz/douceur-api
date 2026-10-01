@@ -13,7 +13,7 @@ app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use(vendaRoutes);
 
 app.get("/", (_req, res) => {
-    res.send("API Douceur funcionando!");
+  res.send("API Douceur funcionando!");
 });
 
 export default app;
