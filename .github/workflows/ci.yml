@@ -1,0 +1,57 @@
+name: Douceur API CI
+
+on:
+  # Executa a esteira quando houver push na branch main
+  push:
+    branches:
+      - main
+
+  # Executa a esteira quando houver Pull Request direcionado para main
+  pull_request:
+    branches:
+      - main
+
+  # Permite executar a esteira manualmente pelo GitHub
+  workflow_dispatch:
+
+jobs:
+  validar-api:
+    name: Validar API e Docker
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 1. Baixar o código fonte
+        uses: actions/checkout@v4
+
+      - name: 2. Habilitar o pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 12.6.0
+          run_install: false
+
+      - name: 3. Configurar o Node.js 24 com cache de dependências
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+
+      - name: 4. Instalar dependências
+        run: pnpm install --frozen-lockfile
+
+      - name: 5. Validar o código com ESLint
+        run: pnpm lint
+
+      - name: 6. Validar os tipos com TypeScript
+        run: pnpm typecheck
+
+      - name: 7. Compilar o projeto
+        run: pnpm build
+
+      - name: 8. Validar a construção da imagem Docker
+        run: docker build -t douceur-api:test .
+
+      - name: 9. Resumo da execução
+        run: |
+          echo "Integração Contínua concluída com sucesso!"
+          echo "Autor da alteração: ${{ github.actor }}"
+          echo "Commit validado: ${{ github.sha }}"
