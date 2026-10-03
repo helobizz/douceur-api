@@ -112,7 +112,7 @@ export const swaggerDocument = {
     "/vendas/{id}": {
       get: {
         summary: "Busca uma venda pelo ID",
-        descriptions: "Retorna uma venda específica pelo se ID",
+        description: "Retorna uma venda específica pelo seu ID",
         parameters: [
           {
             name: "id",
