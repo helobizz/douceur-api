@@ -25,7 +25,14 @@ export class VendaController {
     res: Response,
   ): Promise<void> {
     try {
-      const { id } = req.params;
+      const id = Number(req.params.id);
+
+      if (!Number.isInteger(id) || id <= 0) {
+        res.status(400).json({
+          erro: "ID da venda inválido.",
+        });
+        return;
+      }
 
       const venda = await Venda.findByPk(id);
 
@@ -173,7 +180,14 @@ export class VendaController {
     res: Response,
   ): Promise<void> {
     try {
-      const { id } = req.params;
+      const id = Number(req.params.id);
+
+      if (!Number.isInteger(id) || id <= 0) {
+        res.status(400).json({
+          erro: "ID da venda inválido.",
+        });
+        return;
+      }
 
       const venda = await Venda.findByPk(id);
 
@@ -305,7 +319,14 @@ export class VendaController {
     res: Response,
   ): Promise<void> {
     try {
-      const { id } = req.params;
+      const id = Number(req.params.id);
+
+      if (!Number.isInteger(id) || id <= 0) {
+        res.status(400).json({
+          erro: "ID da venda inválido.",
+        });
+        return;
+      }
 
       const venda = await Venda.findByPk(id);
 

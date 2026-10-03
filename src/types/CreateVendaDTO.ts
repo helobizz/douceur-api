@@ -13,5 +13,5 @@ export interface CreateVendaDTO {
   statusVenda: StatusVenda;
   statusPagamento: StatusPagamento;
   dataVenda: string;
-  observacao: string;
+  observacao?: string;
 }
