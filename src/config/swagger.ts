@@ -129,6 +129,9 @@ export const swaggerDocument = {
           "200": {
             description: "Venda encontrada com sucesso.",
           },
+          "400": {
+            description: "ID da venda inválido.",
+          },
           "404": {
             description: "Venda não encontrada.",
           },
@@ -251,6 +254,9 @@ export const swaggerDocument = {
         responses: {
           "200": {
             description: "Venda excluída com sucesso.",
+          },
+          "400": {
+            description: "ID da venda inválido.",
           },
           "404": {
             description: "Venda não encontrada.",
