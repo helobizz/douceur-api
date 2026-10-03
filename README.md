@@ -360,7 +360,6 @@ Uma execução só é considerada concluída com sucesso quando todas as etapas 
 | `docker compose ps`         | Lista os containers do Compose               |
 | `docker compose down`       | Interrompe e remove os containers do Compose |
 
-
 ## Repositório
 
 O código-fonte do projeto está disponível no GitHub:
