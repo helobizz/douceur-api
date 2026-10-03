@@ -308,10 +308,11 @@ O hook `pre-commit` executa:
 
 ```bash
 pnpm lint
+pnpm format:check
 pnpm typecheck
 ```
 
-Dessa forma, um commit só é concluído quando o código passa pela análise do ESLint e pela verificação de tipos do TypeScript.
+Dessa forma, um commit só é concluído quando o código passa pela análise do ESLint e pela verificação de tipos do TypeScript. Se alguma dessas verificações falhar, o commit é bloqueado até que o problema seja corrigido.
 
 O hook está versionado no repositório em:
 
@@ -338,10 +339,11 @@ A esteira realiza as seguintes etapas:
 3. Configura o Node.js 24 com cache de dependências.
 4. Instala as dependências do projeto.
 5. Executa o ESLint.
-6. Verifica os tipos com TypeScript.
-7. Compila o projeto.
-8. Valida a construção da imagem Docker.
-9. Exibe um resumo da execução.
+6. Validação da formatação com Prettier.
+7. Verifica os tipos com TypeScript.
+8. Compila o projeto.
+9. Valida a construção da imagem Docker.
+10. Exibe um resumo da execução.
 
 Uma execução só é considerada concluída com sucesso quando todas as etapas da esteira são executadas sem erros.
 
@@ -353,6 +355,7 @@ Uma execução só é considerada concluída com sucesso quando todas as etapas 
 | `pnpm dev`                  | Inicia a API em modo de desenvolvimento      |
 | `pnpm lint`                 | Executa a análise do ESLint                  |
 | `pnpm format`               | Formata os arquivos com Prettier             |
+| `pnpm format:check`         | Verifica se os arquivos estão formatados     |
 | `pnpm typecheck`            | Verifica os tipos do TypeScript              |
 | `pnpm build`                | Compila o projeto                            |
 | `node dist/server.js`       | Executa a aplicação compilada                |
