@@ -41,16 +41,19 @@ jobs:
       - name: 5. Validar o código com ESLint
         run: pnpm lint
 
-      - name: 6. Validar os tipos com TypeScript
+      - name: 6. Validar a formatação com Prettier
+        run: pnpm format:check
+
+      - name: 7. Validar os tipos com TypeScript
         run: pnpm typecheck
 
-      - name: 7. Compilar o projeto
+      - name: 8. Compilar o projeto
         run: pnpm build
 
-      - name: 8. Validar a construção da imagem Docker
+      - name: 9. Validar a construção da imagem Docker
         run: docker build -t douceur-api:test .
 
-      - name: 9. Resumo da execução
+      - name: 10. Resumo da execução
         run: |
           echo "Integração Contínua concluída com sucesso!"
           echo "Autor da alteração: ${{ github.actor }}"
