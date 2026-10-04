@@ -5,7 +5,6 @@ import "./models/Venda.js";
 const PORT = 3000;
 
 const startServer = async () => {
-  const variavelNaoUtilizada = "teste";
   try {
     await sequelize.authenticate();
     console.log("Conexão com PostgreSQL estabelecida.");
