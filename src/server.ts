@@ -2,6 +2,7 @@ import app from "./app.js";
 import { sequelize } from "./config/database.js";
 import "./models/Venda.js";
 
+// Porta utilizada pelo servidor da API
 const PORT = 3000;
 
 const startServer = async () => {
