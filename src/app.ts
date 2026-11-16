@@ -12,6 +12,13 @@ app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.use(vendaRoutes);
 
+app.get("/api/health", (_req, res) => {
+  res.status(200).json({
+    status: "ok",
+    uptime: process.uptime(),
+  });
+});
+
 app.get("/", (_req, res) => {
   res.send("API Douceur funcionando!");
 });

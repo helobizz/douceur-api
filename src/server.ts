@@ -3,7 +3,7 @@ import { sequelize } from "./config/database.js";
 import "./models/Venda.js";
 
 // Porta utilizada pelo servidor da API
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 const startServer = async () => {
   try {
@@ -14,7 +14,7 @@ const startServer = async () => {
     console.log("Modelos sincronizados com o banco.");
 
     app.listen(PORT, () => {
-      console.log(`Servidor rodando na porta http://localhost:${PORT}`);
+      console.log(`Servidor rodando na porta ${PORT}`);
     });
   } catch (error) {
     console.log("Erro ao conectar com PostgreSQL: ", error);
