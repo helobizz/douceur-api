@@ -15,6 +15,7 @@ app.use(vendaRoutes);
 app.get("/api/health", (_req, res) => {
   res.status(200).json({
     status: "ok",
+    message: "API Douceur funcionando corretamente",
     uptime: process.uptime(),
   });
 });
